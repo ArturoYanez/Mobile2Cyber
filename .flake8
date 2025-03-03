@@ -1,0 +1,27 @@
+[flake8]
+# Límite de caracteres por línea (PEP8 recomienda 79, pero adaptable a móvil)
+max-line-length = 88
+
+# Excluir directorios/archivos no relevantes para el análisis
+exclude = 
+    .git,
+    __pycache__,
+    .venv,
+    nvim,
+    termux-setup,
+    video-resources
+
+# Ignorar errores específicos comunes en desarrollo móvil
+ignore = 
+    E203,  # Espacio antes de ':' (conflicto con Black)
+    E402,  # Importación no al inicio (común en scripts)
+    W503,  # Salto de línea antes de operador (compatible con Black)
+
+# Configuración de plugins (ej: mccabe para complejidad ciclomática)
+max-complexity = 15  # Máxima complejidad de funciones
+per-file-ignores = 
+    __init__.py:F401  # Ignorar "imports no usados" en __init__
+
+# Formato de salida legible para móvil
+format = grouped  # Agrupa errores por tipo
+show-source = true  # Muestra el código problemático
